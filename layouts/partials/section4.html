@@ -1,12 +1,18 @@
 {{- $section := .Site.Params.section4 }}
-<section class="section" id="section4" style="background-color: #1e242c;">
-  <div class="container has-text-centered">
-    <h2 class="title is-2 has-text-white">{{ $section.title }}</h2>
-    <h3 class="subtitle is-5 has-text-grey-light">{{ $section.subtitle }}</h3>
+<section class="section" id="section4" style="background-color: #1e242c; padding-top: 0; padding-bottom: 6rem;">
 
-    <!-- Carousel wrapper -->
+  <!-- Full-width white background title block with no padding above -->
+  <div style="background-color: #f0f0f0; width: 100vw; margin-left: calc(-50vw + 50%); padding: 2rem 1rem 3rem 1rem;">
+    <div class="has-text-centered">
+      <h2 class="title is-2 has-text-black">{{ $section.title }}</h2>
+      <h3 class="subtitle is-5 has-text-black">{{ $section.subtitle }}</h3>
+      <div class="divider is-centered" style="margin-top: 1rem;"></div>
+    </div>
+  </div>
+
+  <!-- Card section inside container -->
+  <div class="container has-text-centered">
     <div style="overflow: hidden; position: relative; margin-top: 2rem;">
-      <!-- Carousel track -->
       <div id="carousel-track" style="display: flex; transition: transform 0.6s ease; align-items: stretch;">
         {{ range $index, $client := $section.clients }}
           <div class="testimonial-card" style="flex: 0 0 33.3333%; padding: 1rem; box-sizing: border-box; display: flex; flex-direction: column;">
@@ -23,63 +29,80 @@
       </div>
     </div>
   </div>
-
+  
+  <!-- Carousel script (updated) -->
   <script>
     window.onload = function() {
       const track = document.getElementById("carousel-track");
       const cards = document.querySelectorAll(".testimonial-card");
       const visible = 3;
+      const totalCards = cards.length;
       let currentIndex = 0;
 
-      // Clone first 'visible' cards for looping
-      for (let i = 0; i < visible; i++) {
-        const clone = cards[i].cloneNode(true);
-        track.appendChild(clone);
+      // If there is only 1 card
+      if (totalCards === 1) {
+        track.style.justifyContent = 'center';
       }
-
-      // Function to set all cards to the height of the tallest one
-      function setCardHeight() {
-        let maxHeight = 0;
-        
-        // Ensure all cards have the same height
+      // If there are only 2 cards
+      else if (totalCards === 2) {
+        track.style.justifyContent = 'space-between';
+        // Reduce the gap between the two cards
         cards.forEach(card => {
-          card.style.height = 'auto'; // Reset height before measuring
-          const cardHeight = card.offsetHeight;
-          if (cardHeight > maxHeight) {
-            maxHeight = cardHeight;
-          }
-        });
-
-        cards.forEach(card => {
-          card.style.height = maxHeight + 'px'; // Set all cards to the tallest height
+          card.style.margin = '0 1rem'; // Adjust margin for shorter gap
         });
       }
-
-      // Call the function to set heights after images have loaded
-      setCardHeight();
-
-      // Recalculate heights whenever the window is resized (optional)
-      window.addEventListener('resize', function() {
-        setCardHeight();
-      });
-
-      function slideCarousel() {
-        currentIndex++;
-        track.style.transform = `translateX(-${(100 / visible) * currentIndex}%)`;
-
-        // Reset after last slide
-        if (currentIndex >= cards.length) {
-          setTimeout(() => {
-            track.style.transition = 'none';
-            track.style.transform = 'translateX(0)';
-            currentIndex = 0;
-            void track.offsetWidth; // Force reflow
-            track.style.transition = 'transform 0.6s ease';
-          }, 600);
+      // If there are 3 or more cards, apply carousel functionality
+      else if (totalCards > visible) {
+        // Clone cards for carousel effect
+        for (let i = 0; i < visible; i++) {
+          const clone = cards[i].cloneNode(true);
+          track.appendChild(clone);
         }
-      }
 
-      setInterval(slideCarousel, 4000); // every 4 seconds
+        // Adjust the card heights to be uniform
+        function setCardHeight() {
+          let maxHeight = 0;
+          cards.forEach(card => {
+            card.style.height = 'auto';
+            const cardHeight = card.offsetHeight;
+            if (cardHeight > maxHeight) maxHeight = cardHeight;
+          });
+          cards.forEach(card => {
+            card.style.height = maxHeight + 'px';
+          });
+        }
+
+        setCardHeight();
+        window.addEventListener('resize', setCardHeight);
+
+        // Function to handle the sliding carousel
+        function slideCarousel() {
+          currentIndex++;
+          track.style.transform = `translateX(-${(100 / visible) * currentIndex}%)`;
+          if (currentIndex >= cards.length) {
+            setTimeout(() => {
+              track.style.transition = 'none';
+              track.style.transform = 'translateX(0)';
+              currentIndex = 0;
+              void track.offsetWidth;
+              track.style.transition = 'transform 0.6s ease';
+            }, 600);
+          }
+        }
+
+        setInterval(slideCarousel, 4000);
+      } else {
+        // If there are 3 or fewer cards, no carousel effect
+        let maxHeight = 0;
+        cards.forEach(card => {
+          card.style.height = 'auto';
+          const cardHeight = card.offsetHeight;
+          if (cardHeight > maxHeight) maxHeight = cardHeight;
+        });
+        cards.forEach(card => {
+          card.style.height = maxHeight + 'px';
+        });
+      }
     };
   </script>
 </section>

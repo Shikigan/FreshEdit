@@ -37,7 +37,6 @@ params:
     # Hero Image
     image: roadlighting.png
 
-   
     # Footer logos (from static/images/logos/clients/*.svg)
     # urls are optional
    
@@ -45,8 +44,10 @@ params:
   navbar:
   - title: Home
     url: /
-  - title: Projects
+  - title: Products
     url: /
+  - title: Projects
+    url: /projects/
   - title: contact@luminasolutions.co.nz
     url: "mailto:contact@luminasolutions.com"
   
@@ -98,91 +99,52 @@ params:
     title: TESTOMINIALS
     subtitle: see below for what our customers has to say
     clients:
-    - name: Irma Walters
-      quote: Lorem ipsum dolor sit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
-      job: Accountant
-      company: ABC
-      img: 1.png
-    - name: John Bradley
-      quote: Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
-      job: Financial Analyst
+    - name: 
+      quote: It was great working with Lumina Solutions. They were highly skilled and made sure all the lighting worked perfectly throughout the project. 
+             Reliable, professional, and easy to work with—I’d definitely recommend them for any lighting job that needs a steady hand and strong technical know-how.
+      job: Regional Sales Manager
+      company: Cree Lighting Middle East
       img: 2.png
-      company: ABC
-    - name: Gary Blackman
-      quote: Lorem ipsum dolor eli dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
-      job: HR Manager
-      img: 3.png
-      company: ABC
-    - name: AAAAAAA
-      quote: Lorem sum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
-      job: HR Manager
-      img: 3.png
-      company: ABC
-    - name: DDDDD
-      quote: Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
-      job: HR Manager
-      img: 3.png
-      company: ABC
-    - name: Isaac ABFGHH
-      quote: Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
-      job: HR Manager
-      img: 3.png
-      company: ABC
+    # - name: 
+    #   quote: It was great working with Lumina Solutions. They were highly skilled and made sure all the lighting worked perfectly throughout the project. 
+    #          Reliable, professional, and easy to work with—I’d definitely recommend them for any lighting job that needs a steady hand and strong technical know-how.
+    #   job: Regional Sales Manager
+    #   company: Cree Lighting Middle East
+    #   img: 3.png
+    # - name: 
+    #   quote: It was great working with Lumina Solutions. They were highly skilled and made sure all the lighting worked perfectly throughout the project. 
+    #          Reliable, professional, and easy to work with—I’d definitely recommend them for any lighting job that needs a steady hand and strong technical know-how.
+    #   job: Regional Sales Manager
+    #   company: Cree Lighting Middle East
+    #   img: 1.png
+
+    # - name: 
+    #   quote: It was great working with Lumina Solutions. They were highly skilled and made sure all the lighting worked perfectly throughout the project. 
+    #          Reliable, professional, and easy to work with—I’d definitely recommend them for any lighting job that needs a steady hand and strong technical know-how.
+    #   job: Regional Sales Manager
+    #   company: Cree Lighting Middle East
+    #   img: 1.png
+    
       
   section5:
-    title: Drop us a line or two
-    subtitle: We'd love to hear from you
-    buttonText: Send Message
-    # action: https://formspree.io/f/<form_id>
-    # method: POST
+    title: CONTACT US
+    subtitle: Please use the form below to send us a message, or click the email address in the header to get in touch.
+    buttonText: Submit Form
+    action: https://formspree.io/f/manerqgk
+    method: POST
+
+
   footer:
     # Logo (from static/images/logos/___)
     logo: fresh-white-alt.svg
     # Social Media Title
-    socialmediatitle: Follow Us
-    # Social media links (GitHub, Twitter, etc.). All are optional.
-    socialmedia:
-    - link: https://github.com/StefMa
-      # Icons are from Font Awesome
-      icon: github
-    - link: https://dribbble.com/#
-      icon: dribbble
-    - link: https://facebook.com/#
-      icon: facebook
-    - link: https://twitter.com/StefMa91
-      icon: twitter
-    - link: https://bitbucket.org/#
-      icon: bitbucket
+      # Social media links (GitHub, Twitter, etc.). All are optional.
+    
     bulmalogo: true
     quicklinks:
       column1:
-        title: "Product"
-        links:
-        - text: Discover features
-          link: /
-        - text: Why choose our product?
-          link: /
-        - text: Compare features
-          link: /
-        - text: Our roadmap
-          link: /
-        - text: AGB
-          link: /agb
+        title: "Projects"
+         
       column2:
-        title: "Docs"
-        links:
-        - text: Get started
-          link: /
-        - text: User guides
-          link: /
-        - text: Admin guide
-          link: /
-        - text: Developers
-          link: /
-      column3:
-        title: "Blog"
-        links:
-        - text: Latest news
-          link: /blog/first
-        - text: Tech articles
-          link: /blog/second
+        title: "Products"
+     

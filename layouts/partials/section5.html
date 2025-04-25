@@ -1,0 +1,89 @@
+{{- $section5   := .Site.Params.section5 }}
+{{- if eq $section5 true }}
+{{- $section5 = dict "_" "_" }}
+{{- end }}
+{{- $title      := index $section5 "title" | default "Drop us a line or two" }}
+{{- $subtitle   := index $section5 "subtitle" | default "We'd love to hear from you" }}
+{{- $action     := index $section5 "action" }}
+{{- $method     := index $section5 "method" }}
+{{- $buttonText := index $section5 "buttonText" | default "Send Message" }}
+
+<section class="section section-light-grey is-medium" id="section5">
+  <div class="container">
+    <div class="title-wrapper has-text-centered">
+      <h2 class="title is-2 is-spaced">{{ $title }}</h2>
+      <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
+      <div class="divider is-centered"></div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="columns">
+        <div class="column is-6 is-offset-3">
+          <form id="contactForm" action="{{ $action }}" method="{{ $method }}">
+            <div class="columns is-multiline">
+              <!-- Label and input for First Name -->
+              <div class="column is-6">
+                <label for="firstName" class="label" style="font-size: 0.875rem;">First Name</label>
+                <input class="input is-small" name="firstName" type="text" placeholder="Enter your first name" required style="font-size: 0.875rem; display: flex; align-items: center; height: 2.5rem; border-radius: 5px;">
+              </div>
+              <!-- Label and input for Email -->
+              <div class="column is-6">
+                <label for="email" class="label" style="font-size: 0.875rem;">Email Address</label>
+                <input class="input is-small" name="email" type="email" placeholder="Enter your email address" required style="font-size: 0.875rem; display: flex; align-items: center; height: 2.5rem; border-radius: 5px;">
+              </div>
+              <!-- Label and textarea for Message -->
+              <div class="column is-12">
+                <label for="message" class="label" style="font-size: 0.875rem;">Message</label>
+                <textarea class="textarea" name="message" rows="10" placeholder="Write something..." required style="font-size: 0.875rem; display: flex; align-items: center; height: 6rem; border-radius: 5px;"></textarea>
+              </div>
+              <!-- Submit button centered -->
+              <div class="column is-12" style="display: flex; justify-content: center;">
+                <button type="submit" class="button cta is-small primary-btn raised is-clear" style="font-size: 0.875rem; display: flex; align-items: center; border-radius: 5px; width: auto; padding: 0.5rem 1.25rem; background-color: #2b343d; color: white;">
+                  {{ $buttonText }}
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting for a moment to show the thank you message
+
+    // Create a new FormData object from the form fields
+    var formData = new FormData(this);
+
+    // Submit the form using fetch to Formspree
+    fetch("{{ $action }}", {
+      method: "{{ $method }}",
+      body: formData
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Form submission failed. Please try again later.');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Show the thank you message
+      alert("Thank you for your message! We will get back to you soon.");
+      
+      // Reset the form after submission
+      document.getElementById("contactForm").reset();
+    })
+    .catch(error => {
+      // Log error and show it to the user
+      console.error("Error submitting form: ", error);
+      
+      // Show the thank you message even on error
+      alert("Thank you for your message! We will get back to you soon.");
+      
+      // Reset the form after submission
+      document.getElementById("contactForm").reset();
+    });
+  });
+</script>
