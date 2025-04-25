@@ -1,0 +1,39 @@
+/* Set columns to flexbox */
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Ensure the image and text columns take their respective sizes */
+.column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+/* Image column styles */
+.column:nth-child(1) {
+    flex: 0 0 70%; /* Image takes 70% of width */
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Text column styles */
+.column:nth-child(2) {
+    flex: 0 0 30%; /* Text takes 30% of width */
+    padding-left: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Alternating order for image and text */
+.column:nth-child(1) {
+    order: 1;
+}
+
+.column:nth-child(2) {
+    order: 2;
+}
+

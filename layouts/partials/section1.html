@@ -1,0 +1,44 @@
+{{- $section := .Site.Params.section1 }}
+<section class="section" id="section1" style="padding: 0;">
+  <div class="title-wrapper has-text-centered py-0">
+    <h2 class="title is-2 has-text-black">{{ $section.title }}</h2>
+    <h3 class="subtitle is-5 has-text-black">{{ $section.subtitle }}</h3>
+    <div class="divider is-centered" style="margin-bottom: 2rem;"></div>
+  </div>
+
+  {{ range $index, $item := $section.items }}
+    {{- $bgColor := "#2b343d" }} <!-- Default lighter background -->
+    {{ if eq (mod $index 2) 0 }}
+      {{- $bgColor = "#24303a" }} <!-- Slightly darker background closer to #2b343d for even-indexed rows -->
+    {{ end }}
+
+    <div class="columns is-gapless is-vcentered {{ if modBool $index 2 }}is-flex-direction-row-reverse{{ end }}" style="min-height: 400px; margin: 0; display: flex; height: 400px;">
+      
+      <!-- Image Column -->
+      <div class="column" style="
+        flex: 0 0 40%;
+        background-image: url('{{ printf "images/%s" $item.image | relURL }}');
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        padding: 0;
+      ">
+      </div>
+
+      <!-- Text Column with Alternating Background Color -->
+      <div class="column px-6 py-6" style="
+        flex: 0 0 60%;
+        display: flex;
+        align-items: center;
+        background-color: {{ $bgColor }};
+        height: 100%;
+      ">
+        <div style="max-width: 500px; margin: auto;">
+          <h3 class="title is-3 has-text-white">{{ $item.heading }}</h3>
+          <p class="has-text-white">{{ $item.text }}</p>
+        </div>
+      </div>
+
+    </div>
+  {{ end }}
+</section>
