@@ -1,0 +1,32 @@
+<!-- Charset & Viewport -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="{{ "images/new/favicon.svg" | relURL }}">
+
+<!-- Title & Description -->
+<meta name="description" content="{{ with .Params.summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Lumina Solutions">
+
+<!-- Canonical -->
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Google Analytics -->
+{{ template "_internal/google_analytics.html" . }}
+
+<!-- Open Graph -->
+{{ if eq .Site.Params.openGraph true }}
+{{ template "_internal/opengraph.html" . }}
+{{ end }}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title | default .Site.Title }}">
+<meta name="twitter:description" content="{{ .Site.Params.description }}">
+{{ with index .Site.Params.images 0 }}
+<meta name="twitter:image" content="{{ . | absURL }}">
+{{ end }}

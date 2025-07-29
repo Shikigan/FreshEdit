@@ -1,0 +1,43 @@
+{{- $footer      := .Site.Params.footer }}
+{{- $logo        := index $footer "logo" }}
+{{- $quickLinks  := index $footer "quicklinks" }}
+{{- $socialMedia := index $footer "socialmedia" }}
+{{- $bulmaLogo   := index $footer "bulmalogo" }}
+{{- $socialMediaTitle := index $footer "socialmediatitle" }}
+
+<footer class="footer footer-dark" style="padding-bottom: 2rem;">
+  <div class="container">
+    <div class="columns is-vcentered is-mobile" style="min-height: 100px;">
+
+      <!-- Left: Website logo -->
+      <div class="column is-flex is-align-items-center" style="padding-top: 0rem;">
+        <div class="footer-logo">
+          <img src="{{ printf "images/new/%s" $logo | relURL }}" alt="Site Logo" style="height: 60px;">
+        </div>
+      </div>
+
+      <!-- Center: Developer attribution -->
+      <footer role="contentinfo" style="background-color: #27292b; padding: 1rem 0;">
+  <div style="
+    text-align: center;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 0.95rem;
+  ">
+    Developed by <span class="developer-name">Lumina Solutions</span><br>
+    &copy; 2025 Lumina Solutions. All rights reserved.
+  </div>
+</footer>
+
+      <!-- Right: Made with Bulma logo -->
+      <div class="column is-flex is-justify-content-end is-align-items-center" style="padding-top: 0.5rem;">
+        {{- if $bulmaLogo }}
+        <a href="https://bulma.io" target="_blank" style="display: inline-block;">
+          <img src="{{ "images/logos/made-with-bulma.png" | relURL }}" alt="Made with Bulma" style="height: 40px;">
+        </a>
+        {{- end }}
+      </div>
+
+    </div>
+  </div>
+</footer>

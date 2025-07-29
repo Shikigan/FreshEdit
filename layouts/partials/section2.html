@@ -1,0 +1,38 @@
+{{- $section2 := .Site.Params.section2 }}
+{{- $title    := index $section2 "title" }}
+{{- $subtitle := index $section2 "subtitle" }}
+
+<section class="section" id="section1" style="padding: 2rem 1.5rem; background-color: white;">
+  <div class="container" style="max-width: 100%;">
+
+    <div class="title-wrapper has-text-centered">
+      <h1 class="title section-title">{{ $title }}</h1>
+      <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
+      <div class="divider is-centered" style="margin-bottom: 2rem;"></div>
+    </div>
+
+    <div class="product-image-grid">
+
+      <div class="product-image-wrapper">
+        <img 
+          src="/images/new/ajax1.jpg" 
+          alt="Ajax Solar Bollard Light with motion sensor for residential use"
+          class="responsive-product-image"
+        >
+      </div>
+
+      <div class="product-image-wrapper">
+        <a href="/eko/">
+          <img 
+            src="/images/new/eko3.jpg" 
+            alt="EKO Solar Wall Light with motion sensor for residential use"
+            class="responsive-product-image"
+          >
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</section>

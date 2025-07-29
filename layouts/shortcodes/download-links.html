@@ -1,0 +1,11 @@
+<div class="downloads" style="margin-top: 1rem;">
+  {{ $files := split (.Get "files") "," }}
+  {{ $titles := split (.Get "titles") "," }}
+  {{ range $i, $file := $files }}
+    <div style="margin-bottom: 0.5rem;">
+      <a href="{{ $file | trim " " }}" target="_blank" style="text-decoration: underline; color: #0066cc;">
+        {{ index $titles $i | trim " " }}
+      </a>
+    </div>
+  {{ end }}
+</div>

@@ -1,44 +1,107 @@
-{{- $section := .Site.Params.section1 }}
-<section class="section" id="section1" style="padding: 0;">
-  <div class="title-wrapper has-text-centered py-0">
-    <h2 class="title is-2 has-text-black">{{ $section.title }}</h2>
-    <h3 class="subtitle is-5 has-text-black">{{ $section.subtitle }}</h3>
-    <div class="divider is-centered" style="margin-bottom: 2rem;"></div>
-  </div>
+{{- $section1 := .Site.Params.section1 }}
+{{- $title    := index $section1 "title" }}
+{{- $subtitle := index $section1 "subtitle" }}
 
-  {{ range $index, $item := $section.items }}
-    {{- $bgColor := "#2b343d" }} <!-- Default lighter background -->
-    {{ if eq (mod $index 2) 0 }}
-      {{- $bgColor = "#24303a" }} <!-- Slightly darker background closer to #2b343d for even-indexed rows -->
-    {{ end }}
+<section class="section" id="section1" aria-labelledby="section1-title">
+  <div class="container">
 
-    <div class="columns is-gapless is-vcentered {{ if modBool $index 2 }}is-flex-direction-row-reverse{{ end }}" style="min-height: 400px; margin: 0; display: flex; height: 400px;">
-      
-      <!-- Image Column -->
-      <div class="column" style="
-        flex: 0 0 40%;
-        background-image: url('{{ printf "images/%s" $item.image | relURL }}');
-        background-size: cover;
-        background-position: center;
-        height: 100%;
-        padding: 0;
-      ">
+    <!-- Section Header -->
+    <div class="title-wrapper has-text-centered">
+      <h2 id="section1-title" class="title section-title has-text-black">
+        {{ $title | default "Design Services" }}
+      </h2>
+      <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
+      <div class="divider is-centered" style="margin-bottom: 2rem;"></div>
+    </div>
+
+    <!-- Cards Row -->
+    <div class="columns is-multiline is-variable is-6 is-centered">
+
+      <!-- ROAD LIGHTING DESIGN CARD -->
+      <div class="column is-6">
+        <article class="box" style="height: 37rem; border: 0.4rem solid #868686; border-radius: 1rem; padding: 2rem;">
+          <h3 class="title is-5 has-text-centered has-text-black">ROAD LIGHTING DESIGN</h3>
+
+          <figure class="image" style="margin: 1.5rem auto; width: 100%; max-height: 20rem;">
+            <img src="/images/new/at_image11.jpg" alt="Road / street lighting project by Lumina Solutions for Auckland Transport" 
+                style="object-fit: cover; width: 100%; height: 100%; border-radius: 1rem">
+          </figure>
+
+          <div style="margin-top: 2rem;">
+            <p class="has-text-black" style="font-size: 1.05rem;">
+              <strong>Public Road Lighting Design</strong><br>
+              – Auckland Transport<br>
+              – NZTA & NZ Council Roads<br>
+              – Lighting Designs for Resource Consent and Engineering Plan Approvals
+            </p>
+          </div>
+        </article>
       </div>
 
-      <!-- Text Column with Alternating Background Color -->
-      <div class="column px-6 py-6" style="
-        flex: 0 0 60%;
-        display: flex;
-        align-items: center;
-        background-color: {{ $bgColor }};
-        height: 100%;
-      ">
-        <div style="max-width: 500px; margin: auto;">
-          <h3 class="title is-3 has-text-white">{{ $item.heading }}</h3>
-          <p class="has-text-white">{{ $item.text }}</p>
+      <!-- AMENITY LIGHTING DESIGN CARD -->
+        <div class="column is-6">
+          <article class="box" style="height: 37rem; border: 0.4rem solid #868686; border-radius: 1rem; padding: 1rem;">
+            <h3 class="title is-5 has-text-centered has-text-black">AMENITY LIGHTING DESIGN</h3>
+
+           <!-- Responsive two-image layout -->
+            <div class="columns is-mobile is-multiline" style="margin: 1.5rem auto 0 auto;">
+              
+              <!-- First image column -->
+              <div class="column is-half-mobile is-half-tablet is-half-desktop">
+                <figure class="image" 
+                  style="
+                    width: 100%;
+                    aspect-ratio: 3 / 3.55;  /* 🔧 Change this to 16 / 9, 1 / 1, etc. to adjust image aspect ratio */
+                    /* OR use fixed height instead:
+                    height: 200px;         🔧 Uncomment this line and comment out aspect-ratio to use fixed height
+                    */
+                  ">
+                  <img 
+                    src="/images/new/d1.jpg" 
+                    alt="Driveway, accessway solar lighting design project by Lumina Solutions" 
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      border-radius: 1rem;">
+                </figure>
+              </div>
+
+              <!-- Second image column -->
+              <div class="column is-half-mobile is-half-tablet is-half-desktop">
+                <figure class="image" 
+                  style="
+                    width: 100%;
+                    aspect-ratio: 3 / 3.55;  /* 🔧 Adjust aspect ratio here too, or use fixed height as above */
+                    /* height: 200px; */
+                  ">
+                  <img 
+                    src="/images/new/p1.jpg" 
+                    alt="Pathway, foootpath, solar lighting design project by Lumina Solutions" 
+                    style="
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      border-radius: 1rem;">
+                </figure>
+              </div>
+
+            </div>
+
+
+            <!-- Text block -->
+            <div style="margin-top: 1rem; padding-left: 1.4rem;">
+              <p class="has-text-black" style="font-size: 1.05rem;">
+                <strong>Private & Public Space Lighting Design</strong><br>
+                – Accessway Lighting (Resource Consent & Building Consent)<br>
+                – Pathway Lighting (Resource Consent & Building Consent)<br>
+                – Designed to improve safety, visibility & compliance in urban environments
+              </p>
+            </div>
+          </article>
         </div>
-      </div>
+
 
     </div>
-  {{ end }}
+  </div>
 </section>

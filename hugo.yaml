@@ -1,9 +1,8 @@
-baseURL: http://localhost:1313/
-languageCode: en-us
-title: LUMINA SOLUTIONS
+baseURL: https://www.luminasolutions.co.nz/
+title: Lumina Solutions
 theme: hugo-fresh
 
-googleAnalytics: # Put in your tracking code without quotes like this: UA-XXX for universal tracking or G-XXX analytics v4 tracking
+googleAnalytics: G-XXXXXXXXXX
 # Disables warnings
 disableKinds:
 - taxonomy
@@ -12,81 +11,80 @@ markup:
     renderer:
       unsafe: true # Allows you to write raw html in your md files
 
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+    - robots
+    
 params:
   # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
   openGraph: true
   # Used as meta data; describe your site to make Google Bots happy
-  description:
+  description: "Professional lighting design in Auckland, NZ. Specializing in residential, commercial, and urban projects. Supplier of solar bollards and motion-sensor wall lights"
+  # This is the image shown when shared on social media (Open Graph image)
+  images:
+    - "https://www.luminasolutions.co.nz/images/new/favicon_social.jpg"
   # Preloader ensures images are loaded before displaying to the user. If you don't want it uncomment to set it to false
   # preloader: false
   navbarlogo:
-  # Logo (from static/images/logos/___)
-    image: logos/fresh.svg
+  # Logo (from static/images/___)
+    image: new/logo_header.svg
     link: /
+    # width: 500
+    # height: 700
     # Default width/height. Uncomment if you need to change
     # width: 112
     # height: 28
   font:
-    name: "Open Sans"
-    sizes: [400,600]
+    name: "Inter"
+    sizes: [400,500,600,700]
   hero:
     # Main hero title
-    title: LUMINA SOLUTIONS
+    title: lumina SOLUTIONS
     # Hero subtitle (optional)
     subtitle: design with purpose
     # Hero Image
-    image: roadlighting.png
+    image: new/hero.jpg
 
     # Footer logos (from static/images/logos/clients/*.svg)
     # urls are optional
    
   # Customizable navbar. For a dropdown, add a "sublinks" list.
   navbar:
-  - title: Home
+  - title: HOME
     url: /
-  - title: Products
-    url: /
-  - title: Projects
+  - title: PROJECTS
     url: /projects/
+  - title: ABOUT
+    url: /about/
   - title: contact@luminasolutions.co.nz
-    url: "mailto:contact@luminasolutions.com"
+    url: "mailto:contact@luminasolutions.co.nz"  
+  
   
   
   
   section1:
-    title: SERVICES
+    title: DESIGN SERVICES
     subtitle: We offer a range of lighting design services.
-    items:
-      - image: highway.png
-        heading: ROAD LIGHTING DESIGN
-        text: Clean, minimal layouts with rich visuals that scale beautifully.
-      - image: pathway.png
-        heading: AMENITIES LIGHTING DESIGN
-        text: Built to look perfect on desktops, tablets, and phones
-      - image: interior.png
-        heading: INTERIOR LIGHTING DESIGN
-        text: Clean, minimal layouts with rich visuals that scale beautifully.
-      - image: emg.png
-        heading: EMERGENCY LIGHTING DESIGNS
-        text: Built to look perfect on desktops, tablets, and phones
-      - image: daylight.png
-        heading: DAYLIGHT MODELLING SOLUTIONS
-        text: Clean, minimal layouts with rich visuals that scale beautifully.
+    
+    
 
-  # section2:
-  #   title: You're here because you want the best
-  #   subtitle: And we know it
-  #   features:
-  #   - title: Powerful and unified interface
-  #     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-  #     # Icon (from static/images/illustrations/icons/___.svg)
-  #     icon: laptop-globe
-  #   - title: Cross-device synchronisation
-  #     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-  #     icon: doc-sync
-  #   - title: Nomad system
-  #     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-  #     icon: mobile-feed
+  section2:
+    title: PRODUCTS
+    subtitle: Energy-efficient lighting products for every space
+    # features:
+    # - title: Powerful and unified interface
+    #   text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+    #   # Icon (from static/images/illustrations/icons/___.svg)
+    #   icon: laptop-globe
+    # - title: Cross-device synchronisation
+    #   text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+    #   icon: doc-sync
+    # - title: Nomad system
+    #   text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+    #   icon: mobile-feed
 
   # section3:
   #   title: One platform
@@ -96,8 +94,8 @@ params:
   #   buttonLink: "#"
 
   section4:
-    title: TESTOMINIALS
-    subtitle: see below for what our customers has to say
+    title: TESTIMONIALS
+    subtitle: What our clients say about us
     clients:
     - name: 
       quote: It was great working with Lumina Solutions. They were highly skilled and made sure all the lighting worked perfectly throughout the project. 
@@ -128,23 +126,19 @@ params:
       
   section5:
     title: CONTACT US
-    subtitle: Please use the form below to send us a message, or click the email address in the header to get in touch.
+    subtitle: Reach out through the form or our email link in the header
     buttonText: Submit Form
-    action: https://formspree.io/f/manerqgk
+    action: https://formspree.io/f/xjkrndno
     method: POST
 
 
   footer:
     # Logo (from static/images/logos/___)
-    logo: fresh-white-alt.svg
+    logo: logo_header.svg
     # Social Media Title
       # Social media links (GitHub, Twitter, etc.). All are optional.
     
     bulmalogo: true
     quicklinks:
-      column1:
-        title: "Projects"
-         
-      column2:
-        title: "Products"
+
      
